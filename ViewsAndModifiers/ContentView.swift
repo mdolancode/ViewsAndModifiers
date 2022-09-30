@@ -8,24 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var useRedText = false
+    // If possible always use ternary conditional operator over an if else statement because it is less work for SwiftUI.
     var body: some View {
-        // The Order of Modifiers Matter
-        
-//        Button("Hello, world!") {
-//            print(type(of: self.body))
-//        }
-//        .background(.red)
-//        .frame(width: 200, height: 200)
-        
-        Text("Hello, world!")
-            .padding()
-            .background(.red)
-            .padding()
-            .background(.blue)
-            .padding()
-            .background(.green)
-            .padding()
-            .background(.yellow)
+        Button("Hello, world!") {
+            useRedText.toggle()
+        }
+        .foregroundColor(useRedText ? .red : .blue)
     }
 }
 
