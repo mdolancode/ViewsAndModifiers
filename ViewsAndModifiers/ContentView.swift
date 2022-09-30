@@ -8,17 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
+    // 1.
+    var motto1: some View {
+        Text("Draco dormiens")
+    }
+    
+    let motto2 = Text("nunquam titillandus")
+    
+    // 2.
+//    var spells: some View {
+//        Group {
+//            Text("Lumos")
+//            Text("Obliviate")
+//        }
+//    }
+    // 3.
+    @ViewBuilder var spells: some View {
+        Text("Lumos")
+        Text("Obliviate")
+    }
+   
     var body: some View {
-        VStack{
-            Text("Gryffindor")
-            // child modifiers take precendence over environment modifiers, but not all child modifiers can override.
-                .font(.largeTitle)
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
-        }
-        // Environment modifier - Apply the modifier to the whole container.
-        .font(.title)
+        spells
+        // 2.
+//        HStack {
+//            spells
+//        }
+        // 1.
+//        VStack {
+//            motto1
+//                .foregroundColor(.red)
+//            motto2
+//                .foregroundColor(.blue)
+//        }
     }
 }
 
