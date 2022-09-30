@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var useRedText = false
-    // If possible always use ternary conditional operator over an if else statement because it is less work for SwiftUI.
     var body: some View {
-        Button("Hello, world!") {
-            useRedText.toggle()
+        VStack{
+            Text("Gryffindor")
+            // child modifiers take precendence over environment modifiers, but not all child modifiers can override.
+                .font(.largeTitle)
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
         }
-        .foregroundColor(useRedText ? .red : .blue)
+        // Environment modifier - Apply the modifier to the whole container.
+        .font(.title)
     }
 }
 
